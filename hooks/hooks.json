@@ -1,0 +1,17 @@
+{
+  "description": "Generates a handoff markdown doc when a session ends, and lets the user trigger one mid-session.",
+  "hooks": {
+    "SessionEnd": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/generate-handoff.js",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

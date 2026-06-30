@@ -1,0 +1,11 @@
+{
+  "name": "handoff-doc",
+  "version": "0.1.0",
+  "description": "Auto-generates a markdown handoff document at the end of every Claude Code session — summarizing files touched, decisions made, open issues, and next steps — so the next session (or a different tool/person) can pick up context instantly.",
+  "author": {
+    "name": "Sourav Nayak"
+  },
+  "homepage": "https://github.com/souravnayak/handoff-doc",
+  "license": "MIT",
+  "keywords": ["handoff", "session-summary", "context", "documentation", "workflow"]
+}

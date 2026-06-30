@@ -57,6 +57,9 @@ handoff-doc/
     └── handoff.md           # /handoff slash command
 ```
 
+## Session Lifecycle
+<img src="public/architecture.png" alt="Architecture">
+
 ## Notes / limitations
 
 - File-touch detection relies on `tool_use` blocks for `Write`/`Edit`/notebook tools in the transcript; tools that use different input field names for paths may not be picked up — extend `collectSessionData` in `generate-handoff.js` if you hit this.

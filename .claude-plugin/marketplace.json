@@ -11,9 +11,9 @@
       "description": "Auto-generates a markdown handoff doc at session end, injects it silently at the next session start, and nudges Claude to tag DECISION/BUG/NEXT lines mid-session. Run /handoff before ending a session for LLM-synthesized quality.",
       "source": {
         "source": "url",
-        "url": "https://github.com/souravnayak/handoff-doc.git"
+        "url": "https://github.com/souravpn/handoff-doc.git"
       },
-      "homepage": "https://github.com/souravnayak/handoff-doc"
+      "homepage": "https://github.com/souravpn/handoff-doc"
     }
   ]
 }

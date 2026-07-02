@@ -3,15 +3,15 @@
   "description": "Auto-generates session handoff docs, injects prior context at startup, and nudges Claude to tag decisions mid-session.",
   "owner": {
     "name": "Sourav Nayak",
-    "github": "souravnayak"
+    "github": "souravpn"
   },
   "plugins": [
     {
       "name": "handoff-doc",
       "description": "Auto-generates a markdown handoff doc at session end, injects it silently at the next session start, and nudges Claude to tag DECISION/BUG/NEXT lines mid-session. Run /handoff before ending a session for LLM-synthesized quality.",
       "source": {
-        "type": "github",
-        "repo": "souravnayak/handoff-doc"
+        "source": "url",
+        "repo": "https://github.com/souravnayak/handoff-doc.git"
       },
       "homepage": "https://github.com/souravnayak/handoff-doc"
     }

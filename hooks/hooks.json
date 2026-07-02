@@ -1,6 +1,18 @@
 {
-  "description": "Generates a handoff markdown doc when a session ends, and lets the user trigger one mid-session.",
+  "description": "Injects prior session context at startup, auto-generates handoff docs on exit, and nudges Claude to tag key decisions during sessions.",
   "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/inject-context.js",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
     "SessionEnd": [
       {
         "matcher": "*",
@@ -9,6 +21,18 @@
             "type": "command",
             "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/generate-handoff.js",
             "timeout": 30
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/nudge.js",
+            "timeout": 5
           }
         ]
       }

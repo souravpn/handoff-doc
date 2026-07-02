@@ -1,10 +1,10 @@
 ---
-description: Generate a handoff markdown doc summarizing this session's decisions, files touched, bugs, and next steps — written by Claude, not just heuristics.
+description: Synthesize this session into a clean handoff doc, write it to .claude/handoffs/LATEST.md, and give a 2-3 sentence summary.
 ---
 
-Write a session handoff document and save it to `.claude/handoffs/HANDOFF_<ISO-timestamp>.md` (create the directory if needed), then also overwrite `.claude/handoffs/LATEST.md` with the same content.
+Write a session handoff document. Save it to `.claude/handoffs/LATEST.md` (create the directory if needed), and also save a timestamped copy to `.claude/handoffs/HANDOFF_<ISO-timestamp>.md`.
 
-Base it on this conversation. Use this structure:
+Use this exact structure — skip any section with nothing real to report rather than padding with placeholder text:
 
 ```
 # Session Handoff
@@ -13,22 +13,26 @@ Base it on this conversation. Use this structure:
 - Working directory: <cwd>
 
 ## Session goal
-What was this session trying to accomplish, in 1-3 sentences.
+What this session was trying to accomplish, in 1-3 sentences.
 
 ## Decisions
-Bullet list of concrete decisions made and why (architecture, naming, approach, trade-offs accepted).
+Bullet list. For each decision: what was chosen, what was the alternative considered, and why this one. Vague bullets like "decided to fix the bug" are useless — be specific.
 
 ## Bugs / issues surfaced
-Bullet list of bugs found or diagnosed, with root cause if known.
+Each bug: what the symptom is, what the root cause is (if known), current status (open / fixed / workaround in place).
 
 ## Next steps
-Concrete, ordered next actions — specific enough that a fresh session (or a different tool/person) could start immediately.
+Ordered. Specific enough that a fresh Claude Code session could start the first item immediately without asking clarifying questions.
 
 ## Files touched
-List of files created or edited this session, each with a one-line note on what changed.
+Each file with a one-line note on what changed and why.
 
 ## Open questions
-Anything unresolved that needs a decision before continuing.
+Anything that still needs a decision or more information before work can continue.
 ```
 
-Be concise and concrete — this doc exists so a future session can resume without re-reading the whole transcript. Skip sections with nothing to report rather than padding them. After writing the file, tell me the path and give me a 2-3 sentence summary, nothing else.
+After writing both files, output exactly:
+1. The path to LATEST.md
+2. A 2-3 sentence summary of the session — nothing else.
+
+Prioritize concision and specificity. This doc will be auto-injected into the next session's context, so every word should earn its place.
